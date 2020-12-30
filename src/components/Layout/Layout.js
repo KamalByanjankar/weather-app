@@ -1,22 +1,14 @@
 import React from 'react';
-import './Layout.css';
+import Searchbar from '../Searchbar/Searchbar';
 import Weather from '../Weather/Weather';
 
-const layout = props => {
+const layout = (props) => {
     return(
-        <div className="weather">
-            <main>
-                <div className="search-box">
-                    <input 
-                        className="search-bar"
-                        type="text" 
-                        placeholder="Search city"
-                    />
-                </div>
-                <Weather />
-            </main>
+        <div>
+            <h1>Weather Forecast</h1>
+            <Searchbar />
+            <Weather />
         </div>
-        
     )
 }
 
