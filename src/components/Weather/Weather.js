@@ -2,12 +2,26 @@ import React, { Component } from 'react';
 
 class Weather extends Component {
     state = {  }
+
+    dateBuilder = (d) => {
+        let months= ["January", "February", "March", "April", "May", "June", "July",
+                    "August", "September", "October", "November", "December"];
+        let days=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+        let day = days[d.getDay()];
+        let date = d.getDate();
+        let month = months[d.getMonth()];
+        let year = d.getFullYear();
+
+        return `${day} ${date} ${month} ${year}`
+    }
+
     render() { 
         return ( 
             <div>
                 <div>
                     <p>Frankfurt am Main, DE</p>
-                    <p>Thursday, 30 December 2020</p>
+                    <p>{this.dateBuilder(new Date())}</p>
                 </div>
                 <div>
                     <p>Partly Cloudy</p>
