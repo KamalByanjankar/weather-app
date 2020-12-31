@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import WeatherDisplay from './WeatherDisplay/WeatherDispaly';
+import Form from '../../components/Form/Form';
 
 
-const url = "https://api.openweathermap.org/data/2.5/weather?q=Frankfurt&appid=2c190e833a80ec82eb4bf050a1da5404&units=metric"
+const API_KEY = "2c190e833a80ec82eb4bf050a1da5404";
 
 class Weather extends Component {
     state = { 
-        weather: {}
+        weather: []
      }
 
     dateBuilder = (d) => {
@@ -22,38 +23,53 @@ class Weather extends Component {
         return `${day} ${date} ${month} ${year}`
     }
 
-    componentDidMount(){
-        axios.get(url)
-            .then(response => {
-                console.log(response)
-                this.setState({
-                    weather: response.data
-                })
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
+    // componentDidMount(){
+    //     axios.get(url)
+    //         .then(response => {
+    //             // console.log(response)
+    //             this.setState({
+    //                 weather: response.data
+    //             })
+    //         })
+    //         .catch((error) => {
+    //             console.log(error)
+    //         })
+    // }
 
     convertTime = (time) => {
-        // console.log(time)
         let date = new Date(time * 1000);
         let hours = date.getHours();
         let minutes = date.getMinutes();
 
         let formattedTime = hours + ':' + minutes;
-        // console.log(formattedTime)
         return formattedTime;
+    }
+
+    submitFormHandler = async (event) => {
+        event.preventDefault();
+        let city = event.target.elements.cityName.value;
+
+        const api_call = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+
+        const data = await api_call.json();
+        this.setState({
+            weather: data
+        })
+
+        // console.log(this.state.weather)
     }
 
     render() {
         return ( 
-            <WeatherDisplay 
-                weather={this.state.weather}
-                getDate={this.dateBuilder(new Date())}
-                sunrise={this.convertTime}
-                sunset={this.convertTime}
-            />
+            <div>
+                 <Form submitForm={this.submitFormHandler}/>
+                <WeatherDisplay 
+                    weather={this.state.weather}
+                    getDate={this.dateBuilder(new Date())}
+                    sunrise={this.convertTime}
+                    sunset={this.convertTime}
+                />
+            </div>
         );
     }
 }
