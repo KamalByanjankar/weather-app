@@ -1,0 +1,19 @@
+.Display {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  text-align: left;
+  margin: 50px 0;
+}
+
+.Display p {
+  margin: 0;
+  padding: 0;
+  color: #ccc;
+}
+
+.Name {
+  font-size: 30px;
+  color: #ccc;
+  margin-bottom: 300px;
+}

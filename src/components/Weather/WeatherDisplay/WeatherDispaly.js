@@ -1,4 +1,7 @@
 import React from 'react';
+import WeatherIcon from '../WeatherIcons/WeatherIcon';
+
+import classes from './WeatherDisplay.module.css';
 
 const weatherDisplay = (props) => {
     const weather = props.weather;
@@ -6,15 +9,18 @@ const weatherDisplay = (props) => {
     return(
         <div>
             {(typeof weather.main != 'undefined') ? 
-                <div>
+                <div className={classes.Display}>
                     <div>
-                        <p>{weather.name}, {weather.sys.country}</p>
-                        <p>{props.getDate}</p>
+                        <div>
+                            <p className={classes.Name}>{weather.name}, {weather.sys.country}</p>
+                            <p>{props.getDate}</p>
+                        </div>
+                        <div>
+                            <WeatherIcon weatherId={weather.weather[0].id}/>
+                            <p>{weather.weather[0].main}</p>
+                            <p>{Math.round(weather.main.temp)}&deg;</p>
+                        </div>  
                     </div>
-                    <div>
-                        <p>{weather.weather[0].main}</p>
-                        <p>{Math.round(weather.main.temp)}&deg;</p>
-                    </div>  
                     <div>
                         <p>High: {Math.round(weather.main.temp_max)}&deg;</p>
                         <p>Low: {Math.round(weather.main.temp_min)}&deg;</p>

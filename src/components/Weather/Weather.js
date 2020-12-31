@@ -20,7 +20,7 @@ class Weather extends Component {
         let date = d.getDate();
         let month = months[d.getMonth()];
         let year = d.getFullYear();
-        return `${day} ${date} ${month} ${year}`
+        return `${day}, ${date} ${month} ${year}`
     }
 
     // componentDidMount(){
@@ -55,7 +55,7 @@ class Weather extends Component {
         this.setState({
             weather: data
         })
-        // console.log(this.state.weather)
+        console.log(this.state.weather)
     }
 
     render() {

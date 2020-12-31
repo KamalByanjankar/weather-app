@@ -1,11 +1,11 @@
 import React from 'react';
 import Weather from '../Weather/Weather';
 
-import './Layout.css';
+import classes from './Layout.module.css';
 
 const layout = (props) => {
     return(
-        <div>
+        <div className={classes.Layout}>
             <h1>Weather Forecast</h1>
             <Weather />
         </div>
