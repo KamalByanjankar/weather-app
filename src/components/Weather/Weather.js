@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import WeatherDisplay from './WeatherDisplay/WeatherDispaly';
 
 
-const url = "http://api.openweathermap.org/data/2.5/weather?q=Frankfurt&appid=2c190e833a80ec82eb4bf050a1da5404&units=metric"
+const url = "https://api.openweathermap.org/data/2.5/weather?q=Frankfurt&appid=2c190e833a80ec82eb4bf050a1da5404&units=metric"
 
 class Weather extends Component {
     state = { 
@@ -24,7 +25,7 @@ class Weather extends Component {
     componentDidMount(){
         axios.get(url)
             .then(response => {
-                // console.log(response)
+                console.log(response)
                 this.setState({
                     weather: response.data
                 })
@@ -34,26 +35,25 @@ class Weather extends Component {
             })
     }
 
-    render() { 
-        const weather = this.state.weather;
+    convertTime = (time) => {
+        // console.log(time)
+        let date = new Date(time * 1000);
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+
+        let formattedTime = hours + ':' + minutes;
+        // console.log(formattedTime)
+        return formattedTime;
+    }
+
+    render() {
         return ( 
-            <div>
-                {(typeof weather.main != 'undefined') ? 
-                    <div>
-                        <div>
-                            <p>{weather.name}, {weather.sys.country}</p>
-                            <p>{this.dateBuilder(new Date())}</p>
-                        </div>
-                        <div>
-                            <p>{weather.weather[0].main}</p>
-                            <p>{Math.round(weather.main.temp)}&deg;</p>
-                        </div>  
-                        <div>
-                            <p>High: {Math.round(weather.main.temp_max)}&deg;</p>
-                            <p>Low: {Math.round(weather.main.temp_min)}&deg;</p>
-                        </div>
-                    </div>  : ('')}             
-            </div>
+            <WeatherDisplay 
+                weather={this.state.weather}
+                getDate={this.dateBuilder(new Date())}
+                sunrise={this.convertTime}
+                sunset={this.convertTime}
+            />
         );
     }
 }
