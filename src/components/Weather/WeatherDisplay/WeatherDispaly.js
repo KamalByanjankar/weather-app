@@ -15,10 +15,14 @@ const weatherDisplay = (props) => {
                             <p className={classes.Name}>{weather.name}, {weather.sys.country}</p>
                             <p>{props.getDate}</p>
                         </div>
-                        <div>
-                            <WeatherIcon weatherId={weather.weather[0].id}/>
-                            <p>{weather.weather[0].main}</p>
-                            <p>{Math.round(weather.main.temp)}&deg;</p>
+                        <div className={classes.Temperature}>
+                            <div>
+                                <WeatherIcon weatherId={weather.weather[0].id}/>
+                            </div>
+                            <div className={classes.Temp}>
+                                <p className={classes.Temp__name}>{Math.round(weather.main.temp)}&deg;</p>
+                                <p>{weather.weather[0].main}</p>
+                            </div>
                         </div>  
                     </div>
                     <div>
