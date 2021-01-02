@@ -11,8 +11,8 @@ const weatherDetails = (props) => {
             <p>Feels Like: {Math.round(weather.main.feels_like)}&deg;</p>
             <p>Pressure: {weather.main.pressure} hPa</p>
             <p>Visibility:{(weather.visibility)/1000} km</p>
-            <p>Sunrise: {weather.sys.sunrise}</p>
-            <p>Sunset: {weather.sys.sunset}</p>
+            <p>Sunrise: {props.sunrise(weather.sys.sunrise)}</p>
+            <p>Sunset: {props.sunset(weather.sys.sunset)}</p>
         </div>
     )
 }

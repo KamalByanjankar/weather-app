@@ -17,7 +17,11 @@ const weatherDisplay = (props) => {
                     <div className={classes.Display}>
                         <WeatherDisplays weather={props.weather}/>
                     
-                        <WeatherDetails weather={props.weather} />
+                        <WeatherDetails 
+                            weather={props.weather} 
+                            sunrise={props.sunrise}
+                            sunset={props.sunset}
+                        />
                     </div>
                 </div>  : ('')}             
         </div>
