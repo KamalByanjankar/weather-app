@@ -1,0 +1,12 @@
+.Temperature {
+  display: flex;
+  justify-content: space-around;
+}
+
+.Temp {
+  margin-top: 70px;
+}
+
+.Temp__degree {
+  font-size: 80px;
+}

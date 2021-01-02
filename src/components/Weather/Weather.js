@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 // import axios from 'axios';
-import WeatherDisplay from './WeatherDisplay/WeatherDispaly';
+import WeatherDisplay from './WeatherDisplay/WeatherDisplay';
 import Form from '../../components/Form/Form';
 
 
