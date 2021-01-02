@@ -1,0 +1,26 @@
+.WeatherDetails {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+  box-sizing: border-box;
+  border: 1px solid rgb(88, 205, 235);
+  background-color: transparent;
+  border-radius: 15px;
+  margin-right: 20px;
+}
+
+.WeatherDetails p {
+  text-transform: uppercase;
+}
+
+.Headings {
+  padding: 40px;
+}
+
+.Details {
+  padding-bottom: 40px;
+}
+
+.Values {
+  font-size: 30px;
+}
