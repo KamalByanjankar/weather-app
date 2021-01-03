@@ -55,7 +55,7 @@ class Weather extends Component {
         this.setState({
             weather: data
         })
-        console.log(this.state.weather)
+        // console.log(this.state.weather)
     }
 
     render() {

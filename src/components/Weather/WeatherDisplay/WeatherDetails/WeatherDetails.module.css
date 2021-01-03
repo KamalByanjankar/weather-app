@@ -1,26 +1,85 @@
 .WeatherDetails {
   display: flex;
   justify-content: space-between;
-  padding: 0 30px;
   box-sizing: border-box;
   border: 1px solid rgb(88, 205, 235);
   background-color: transparent;
   border-radius: 15px;
-  margin-right: 20px;
+  margin: 0px 5px;
 }
 
-.WeatherDetails p {
+.WeatherDetails h1 {
+  padding: 0;
+  margin: 0;
+  font-weight: lighter;
   text-transform: uppercase;
+  color: #ccc;
+  font-size: 8px;
 }
 
 .Headings {
-  padding: 40px;
+  padding: 10px 20px;
 }
 
 .Details {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 .Values {
-  font-size: 30px;
+  font-size: 19px;
+}
+
+@media (min-width: 560px) {
+  .WeatherDetails {
+    padding: 5px;
+    margin: 0px 30px;
+  }
+
+  .WeatherDetails h1 {
+    font-size: 12px;
+  }
+
+  .Headings {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 850px) {
+  .WeatherDetails {
+    padding: 10px;
+    justify-content: space-around;
+    border-radius: 15px;
+    margin: 0px;
+  }
+
+  .Headings {
+    padding: 30px;
+  }
+
+  .Details {
+    padding-bottom: 30px;
+  }
+
+  .Values {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .WeatherDetails {
+    padding: 30px;
+    margin: 20px;
+  }
+
+  .Headings {
+    padding: 40px;
+  }
+
+  .Details {
+    padding-bottom: 40px;
+  }
+
+  .Values {
+    font-size: 30px;
+  }
 }

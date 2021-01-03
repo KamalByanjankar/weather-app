@@ -2,3 +2,25 @@
   margin: 20px;
   padding: 0;
 }
+
+.Size {
+  font-size: 70px;
+}
+
+@media (min-width: 560px) {
+  .Size {
+    font-size: 90px;
+  }
+}
+
+@media (min-width: 850px) {
+  .Size {
+    font-size: 120px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Size {
+    font-size: 200px;
+  }
+}

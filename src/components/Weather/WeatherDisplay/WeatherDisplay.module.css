@@ -1,9 +1,6 @@
 .Display {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 30px;
   text-align: left;
-  margin: 50px 0;
+  margin: 10px 0;
 }
 
 .WeatherDisplay p {
@@ -13,6 +10,35 @@
 }
 
 .Name {
-  font-size: 60px;
-  margin-bottom: 300px;
+  font-size: 30px;
+}
+
+@media (min-width: 560px) {
+  .Display {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 850px) {
+  .Display {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+  }
+
+  .Name {
+    font-size: 35px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Display {
+    display: flex;
+    justify-content: space-between;
+    margin: 50px;
+  }
+
+  .Name {
+    font-size: 50px;
+  }
 }

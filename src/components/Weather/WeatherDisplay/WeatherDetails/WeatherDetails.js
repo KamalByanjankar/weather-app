@@ -7,41 +7,41 @@ const weatherDetails = (props) => {
         <div className={classes.WeatherDetails}>
             <div className={classes.Headings}>
                 <div className={classes.Details}>
-                    <p>High</p>
+                    <h1>High</h1>
                     <p className={classes.Values}>{Math.round(weather.main.temp_max)}&deg;</p> 
                 </div>
                 <div>
-                    <p>Low</p>
+                    <h1>Low</h1>
                     <p className={classes.Values}>{Math.round(weather.main.temp_min)}&deg;</p>
                 </div>
             </div>
             <div className={classes.Headings}>
                 <div className={classes.Details}> 
-                    <p>Humidity</p>
+                    <h1>Humidity</h1>
                     <p className={classes.Values}>{weather.main.humidity} %</p>
                 </div>
                 <div>
-                    <p>Feels Like</p>
+                    <h1>Feels Like</h1>
                     <p className={classes.Values}>{Math.round(weather.main.feels_like)}&deg;</p>
                 </div>
             </div>
             <div className={classes.Headings}>
                 <div className={classes.Details}>
-                    <p>Pressure</p>
+                    <h1>Pressure</h1>
                     <p className={classes.Values}>{weather.main.pressure} hPa</p>
                 </div>
                 <div>
-                    <p>Visibility</p>
+                    <h1>Visibility</h1>
                     <p className={classes.Values}>{(weather.visibility)/1000} km</p>
                 </div>
             </div>
             <div className={classes.Headings}>
                 <div className={classes.Details}>
-                    <p>Sunrise</p>
+                    <h1>Sunrise</h1>
                     <p className={classes.Values}>{props.sunrise(weather.sys.sunrise)}</p>
                 </div>
                 <div>
-                    <p>Sunset</p>
+                    <h1>Sunset</h1>
                     <p className={classes.Values}>{props.sunset(weather.sys.sunset)}</p>
                 </div>
             </div>

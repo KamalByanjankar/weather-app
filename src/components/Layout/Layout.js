@@ -6,7 +6,7 @@ import classes from './Layout.module.css';
 const layout = (props) => {
     return(
         <div className={classes.Layout}>
-            <h1 style={{color:'white'}}>Weather Forecast</h1>
+            <h1 className={classes.header}>Weather App</h1>
             <Weather />
         </div>
     )

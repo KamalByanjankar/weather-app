@@ -1,16 +1,27 @@
 .Searchbar {
-  width: 90%;
-  padding: 10px;
+  width: 100%;
   margin: 0 auto;
 }
 
 .Searchbar input {
   padding: 10px 15px;
-  width: 50%;
+  width: 70%;
   font-size: 20px;
   outline: none;
   box-shadow: 0 1px 2px #eee;
   border: 1px solid #ccc;
   border-radius: 50px;
-  margin-bottom: 40px;
+  margin-bottom: 15px;
+}
+
+@media (min-width: 560px) {
+  .Searchbar input {
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 850px) {
+  .Searchbar input {
+    width: 40%;
+  }
 }

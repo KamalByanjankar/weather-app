@@ -1,13 +1,51 @@
 .Temperature {
   display: flex;
-  justify-content: space-around;
+  margin-bottom: 30px;
+  align-items: center;
+  justify-content: center;
 }
 
 .Temp {
-  margin-top: 70px;
-  padding: 0 20px;
+  margin-top: 10px;
+  padding: 0 5px;
 }
 
 .Temp__degree {
-  font-size: 80px;
+  font-size: 30px;
+}
+
+@media (min-width: 560px) {
+  .Temperature {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Temp__degree {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 850px) {
+  .Temperature {
+    justify-content: space-around;
+  }
+
+  .Temp {
+    margin-top: 5px;
+    padding: 0 5px;
+  }
+
+  .Temp__degree {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .Temperature {
+    justify-content: space-around;
+  }
+
+  .Temp__degree {
+    font-size: 80px;
+  }
 }
