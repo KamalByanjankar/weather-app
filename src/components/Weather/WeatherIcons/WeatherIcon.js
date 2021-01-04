@@ -1,5 +1,5 @@
 import React from 'react';
-import { WiDayThunderstorm, WiDayRainMix, WiDayRain, WiDaySnow, WiDayFog, WiDaySunny, WiCloudy } from 'weather-icons-react';
+import { WiDayThunderstorm, WiDayRainMix, WiDayRain, WiDaySnow, WiDayFog, WiDaySunny, WiDayCloudy } from 'weather-icons-react';
 
 import classes from './WeatherIcon.module.css';
 
@@ -33,7 +33,7 @@ const weatherIcon = (props) => {
             break;
 
         case weatherId >= 801 && weatherId <= 804:
-            weatherIcon = <WiCloudy className={classes.Size} color='#ccc' />;
+            weatherIcon = <WiDayCloudy className={classes.Size} color='#ccc' />;
             break;
 
         default:
