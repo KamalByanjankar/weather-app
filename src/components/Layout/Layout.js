@@ -18,7 +18,7 @@ const layout = (props) => {
         <div className={classes.Layout}>
             <div className={background}>
                 <h1 className={classes.header}>Weather App</h1>
-                <Weather />
+                <Weather/>
             </div>
         </div>
     )

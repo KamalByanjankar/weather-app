@@ -1,5 +1,5 @@
 import React from 'react';
-import { WiDayThunderstorm, WiDayRainMix, WiDayRain, WiDaySnow, WiDayFog, WiDaySunny, WiDayCloudy } from 'weather-icons-react';
+import { WiThunderstorm, WiRainMix, WiRain, WiSnow, WiFog, WiDaySunny, WiCloudy } from 'weather-icons-react';
 
 import classes from './WeatherIcon.module.css';
 
@@ -9,23 +9,23 @@ const weatherIcon = (props) => {
 
     switch(true){
         case weatherId >= 200 && weatherId <= 232:
-            weatherIcon = <WiDayThunderstorm className={classes.Size} color='#ccc' />;
+            weatherIcon =  <WiThunderstorm className={classes.Size} color='#ccc' />;
             break;
 
         case weatherId >= 300 && weatherId <= 321:
-            weatherIcon = <WiDayRainMix className={classes.Size} color='#ccc' />;
+            weatherIcon = <WiRainMix className={classes.Size} color='#ccc' />;
             break;
 
         case weatherId >= 500 && weatherId <= 531:
-            weatherIcon = <WiDayRain className={classes.Size} color='#ccc' />;
+            weatherIcon = <WiRain className={classes.Size} color='#ccc' />;
             break;
 
         case weatherId >= 600 && weatherId <= 622:
-            weatherIcon = <WiDaySnow className={classes.Size} color='#ccc' />;
+            weatherIcon = <WiSnow className={classes.Size} color='#ccc' />;
             break;
 
         case weatherId >= 701 && weatherId <= 781:
-            weatherIcon = <WiDayFog className={classes.Size} color='#ccc' />;
+            weatherIcon = <WiFog className={classes.Size} color='#ccc' />;
             break;
 
         case weatherId === 800:
@@ -33,7 +33,7 @@ const weatherIcon = (props) => {
             break;
 
         case weatherId >= 801 && weatherId <= 804:
-            weatherIcon = <WiDayCloudy className={classes.Size} color='#ccc' />;
+            weatherIcon = <WiCloudy className={classes.Size} color='#ccc' />
             break;
 
         default:

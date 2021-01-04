@@ -55,13 +55,13 @@ class Weather extends Component {
         this.setState({
             weather: data
         })
-        console.log(this.state.weather)
+        // console.log(this.state.weather)
     }
 
     render() {
         return ( 
             <div>
-                 <Form submitForm={this.submitFormHandler}/>
+                <Form submitForm={this.submitFormHandler}/>
                 <WeatherDisplay 
                     weather={this.state.weather}
                     getDate={this.dateBuilder(new Date())}
