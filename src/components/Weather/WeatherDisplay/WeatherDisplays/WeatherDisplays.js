@@ -1,5 +1,5 @@
 import React from 'react';
-import WeatherIcon from '../../WeatherIcons/WeatherIcon';
+import WeatherIcon from './WeatherIcons/WeatherIcon';
 
 import classes from "./WeatherDisplays.module.css";
 

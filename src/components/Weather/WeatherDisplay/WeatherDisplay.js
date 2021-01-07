@@ -6,7 +6,6 @@ import classes from './WeatherDisplay.module.css';
 
 const weatherDisplay = (props) => {
     const weather = props.weather;
-    
     return(
         <div className={classes.WeatherDisplay}>
             {(typeof weather.main != 'undefined') ? 
