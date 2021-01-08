@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 // import axios from 'axios';
 import WeatherDisplay from './WeatherDisplay/WeatherDisplay';
 import Form from '../../components/Form/Form';
@@ -8,12 +8,10 @@ import classes from './Weather.module.css';
 
 const API_KEY = "2c190e833a80ec82eb4bf050a1da5404";
 
-class Weather extends Component {
-    state = { 
-        weather: []
-     }
+function Weather(){
+    const [weather, setWeather] = useState([]);
 
-    dateBuilder = (d) => {
+    const dateBuilder = (d) => {
         let months= ["January", "February", "March", "April", "May", "June", "July",
                     "August", "September", "October", "November", "December"];
         let days=["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -38,7 +36,7 @@ class Weather extends Component {
     //         })
     // }
 
-    convertTime = (time) => {
+    const convertTime = (time) => {
         let date = new Date(time * 1000);
         let hours = date.getHours();
         let minutes = date.getMinutes();
@@ -60,7 +58,7 @@ class Weather extends Component {
         return formattedTime;
     }
 
-    submitFormHandler = async (event) => {
+    const submitFormHandler = async (event) => {
         event.preventDefault();
         let city = event.target.elements.cityName.value;
 
@@ -68,45 +66,38 @@ class Weather extends Component {
 
         const data = await api_call.json();
 
-        if(api_call.status === 404){
+        if(api_call.status !== 200){
             alert('Please Enter valid city name');
             console.clear();
         }
 
-        this.setState({
-            weather: data
-        })
-
+        setWeather(data);
         event.target.elements.cityName.value= "";
-        // console.log(this.state.weather)
     }
 
-    render() {
+    let background = null;
+    const hours = new Date().getHours()
+    if(hours >= 7 && hours < 17){
+        background= classes.Day;
+    }
+    else{
+        background= classes.Night;
+    }
 
-        let background = null;
-        const hours = new Date().getHours()
-        if(hours >= 7 && hours < 17){
-            background= classes.Day;
-        }
-        else{
-            background= classes.Night;
-        }
-
-        return ( 
-            <div className={classes.Weather}>
-                <div className={background}>
-                    <Layout />
-                    <Form submitForm={this.submitFormHandler}/>
-                    <WeatherDisplay 
-                        weather={this.state.weather}
-                        getDate={this.dateBuilder(new Date())}
-                        sunrise={this.convertTime}
-                        sunset={this.convertTime}
-                    />
-                </div>
+    return ( 
+        <div className={classes.Weather}>
+            <div className={background}>
+                <Layout />
+                <Form submitForm={submitFormHandler}/>
+                <WeatherDisplay 
+                    weather={weather}
+                    getDate={dateBuilder(new Date())}
+                    sunrise={convertTime}
+                    sunset={convertTime}
+                />
             </div>
-        );
-    }
+        </div>
+    );
 }
  
 export default Weather;
