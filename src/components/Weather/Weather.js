@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 // import axios from 'axios';
 import WeatherDisplay from './WeatherDisplay/WeatherDisplay';
 import Form from '../../components/Form/Form';
-import Layout from '../Layout/Layout';
 import classes from './Weather.module.css';
 
 
@@ -36,6 +35,23 @@ function Weather(){
     //         })
     // }
 
+    const submitFormHandler = async (event) => {
+        event.preventDefault();
+        let city = event.target.elements.cityName.value;
+
+        const api_call = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+
+        const data = await api_call.json();
+
+        if(api_call.status !== 200){
+            alert('Please Enter valid city name');
+            console.clear();
+        }
+
+        setWeather(data);
+        event.target.elements.cityName.value= "";
+    }
+
     const convertTime = (time) => {
         let date = new Date(time * 1000);
         let hours = date.getHours();
@@ -58,36 +74,26 @@ function Weather(){
         return formattedTime;
     }
 
-    const submitFormHandler = async (event) => {
-        event.preventDefault();
-        let city = event.target.elements.cityName.value;
+    let background = []
+    if(typeof weather.main != 'undefined'){
+        const sunrise = new Date((weather.sys.sunrise) * 1000).getHours();
+        const sunset = new Date((weather.sys.sunset) * 1000).getHours();
+        const hours = new Date().getHours()
 
-        const api_call = await fetch (`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
-
-        const data = await api_call.json();
-
-        if(api_call.status !== 200){
-            alert('Please Enter valid city name');
-            console.clear();
+        if(hours >= sunrise && hours < sunset){
+            background.push(classes.day)
         }
-
-        setWeather(data);
-        event.target.elements.cityName.value= "";
-    }
-
-    let background = null;
-    const hours = new Date().getHours()
-    if(hours >= 7 && hours < 17){
-        background= classes.Day;
+        else{
+            background.push(classes.night)
+        }
     }
     else{
-        background= classes.Night;
+        background.push(classes.backgroundImg)
     }
 
     return ( 
         <div className={classes.Weather}>
             <div className={background}>
-                <Layout />
                 <Form submitForm={submitFormHandler}/>
                 <WeatherDisplay 
                     weather={weather}
